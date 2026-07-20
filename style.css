@@ -58,7 +58,6 @@ body {
   background-color: #357ae8;
 }
 
-/* Form Controls */
 .input-field {
   width: 100%;
   padding: 10px 12px;
@@ -89,7 +88,6 @@ body {
   background-color: #1877f2;
 }
 
-/* Profile Picture Upload Preview */
 .avatar-upload-container {
   margin-bottom: 20px;
   display: flex;
@@ -108,7 +106,6 @@ body {
   border: 2px solid #dbdbdb;
 }
 
-/* Instagram-style Home Layout */
 .home-layout {
   display: flex;
   max-width: 935px;
@@ -125,11 +122,6 @@ body {
   flex-direction: column;
   justify-content: space-between;
   background: #fff;
-}
-
-.sidebar .rhk-logo {
-  font-size: 24px;
-  margin-left: 12px;
 }
 
 .nav-links {
@@ -201,3 +193,4 @@ body {
 .post-footer {
   padding: 12px;
 }
+
