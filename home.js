@@ -11,23 +11,23 @@ onAuthStateChanged(auth, async (user) => {
     if (!userSnap.exists()) {
       window.location.href = "setup.html";
     } else {
-      renderWelcomePost(userSnap.data());
+      renderFeed(userSnap.data());
     }
   } else {
     window.location.href = "index.html";
   }
 });
 
-function renderWelcomePost(userData) {
+function renderFeed(userData) {
   feedContainer.innerHTML = `
     <div class="post-card">
       <div class="post-header">
         <div class="post-avatar" style="background-image: url('${userData.photoURL}');"></div>
         <span class="post-username">${userData.username}</span>
       </div>
-      <img class="post-image" src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe" alt="Welcome post">
+      <img class="post-image" src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe" alt="Post">
       <div class="post-footer">
-        <p><strong>${userData.username}</strong> Welcome to the new RHK platform! 🚀 Let's build and share great content.</p>
+        <p><strong>${userData.username}</strong> Welcome to your custom RHK application feed! 🚀</p>
       </div>
     </div>
   `;
@@ -37,4 +37,3 @@ logoutBtn.addEventListener("click", async () => {
   await signOut(auth);
   window.location.href = "index.html";
 });
-
