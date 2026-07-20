@@ -23,16 +23,13 @@ onAuthStateChanged(auth, (user) => {
   }
 });
 
-// Handle image preview & Cloudinary Upload
 avatarInput.addEventListener("change", async (e) => {
   const file = e.target.files[0];
   if (!file) return;
 
-  // Local preview instantly
   avatarPreview.style.backgroundImage = `url('${URL.createObjectURL(file)}')`;
-  
   submitBtn.disabled = true;
-  submitBtn.innerText = "Uploading photo...";
+  submitBtn.innerText = "Uploading to Cloudinary...";
 
   const formData = new FormData();
   formData.append("file", file);
@@ -47,19 +44,18 @@ avatarInput.addEventListener("change", async (e) => {
     if (data.secure_url) {
       uploadedImageUrl = data.secure_url;
       submitBtn.disabled = false;
-      submitBtn.innerText = "Complete Sign Up";
+      submitBtn.innerText = "Save and Continue";
     } else {
-      throw new Error("Upload failed");
+      throw new Error("Cloudinary upload error");
     }
   } catch (error) {
-    console.error("Cloudinary error:", error);
-    alert("Image upload failed. Try again.");
+    console.error("Upload error:", error);
+    alert("Image upload failed.");
     submitBtn.disabled = false;
-    submitBtn.innerText = "Complete Sign Up";
+    submitBtn.innerText = "Save and Continue";
   }
 });
 
-// Save to Firestore
 setupForm.addEventListener("submit", async (e) => {
   e.preventDefault();
   if (!currentUser) return;
@@ -71,17 +67,16 @@ setupForm.addEventListener("submit", async (e) => {
   try {
     await setDoc(doc(db, "users", currentUser.uid), {
       uid: currentUser.uid,
-      username: username,
-      fullName: fullName,
-      bio: bio,
+      username,
+      fullName,
+      bio,
       photoURL: uploadedImageUrl,
       createdAt: new Date().toISOString()
     });
 
     window.location.href = "home.html";
   } catch (error) {
-    console.error("Error saving user profile:", error);
-    alert("Error creating profile data.");
+    console.error("Firestore saving error:", error);
+    alert("Failed to save data.");
   }
 });
-
