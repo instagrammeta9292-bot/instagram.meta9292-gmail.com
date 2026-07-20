@@ -2,29 +2,28 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>RHK - Complete Profile</title>
+  <title>RHK - Profile Setup</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
   <div class="setup-container">
     <div class="setup-box">
-      <div class="rhk-logo">RHK</div>
-      <p style="margin-bottom: 20px; font-size: 14px; color: #8e8e8e;">Create your account profile</p>
+      <div class="rhk-logo">RHK PROFILE</div>
       
       <form id="setupForm">
         <div class="avatar-upload-container">
           <div id="avatarPreview" class="avatar-preview"></div>
           <label for="avatarInput" style="color: #0095f6; font-size: 14px; font-weight: 600; cursor: pointer;">
-            Add Profile Photo
+            Upload Profile Photo
           </label>
           <input type="file" id="avatarInput" accept="image/*" style="display: none;">
         </div>
 
         <input type="text" id="usernameInput" class="input-field" placeholder="Username" required>
         <input type="text" id="fullNameInput" class="input-field" placeholder="Full Name" required>
-        <textarea id="bioInput" class="input-field" placeholder="Bio..." style="resize: none; height: 70px;"></textarea>
+        <textarea id="bioInput" class="input-field" placeholder="Write a short bio..." style="resize: none; height: 70px;"></textarea>
         
-        <button type="submit" id="submitBtn" class="primary-btn">Complete Sign Up</button>
+        <button type="submit" id="submitBtn" class="primary-btn">Save and Continue</button>
       </form>
     </div>
   </div>
@@ -32,4 +31,3 @@
   <script type="module" src="js/setup.js"></script>
 </body>
 </html>
-
