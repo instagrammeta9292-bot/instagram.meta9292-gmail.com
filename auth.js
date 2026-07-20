@@ -1,4 +1,4 @@
-import { auth, googleProvider, signInWithPopup, onAuthStateChanged, db, doc, getDoc } from "./firebase-init.js";
+import { auth, googleProvider, signInWithPopup, db, doc, getDoc } from "./firebase-init.js";
 
 const googleLoginBtn = document.getElementById("googleLoginBtn");
 
@@ -8,7 +8,6 @@ if (googleLoginBtn) {
       const result = await signInWithPopup(auth, googleProvider);
       const user = result.user;
 
-      // Check if user profile already exists in Firestore
       const userDocRef = doc(db, "users", user.uid);
       const userSnap = await getDoc(userDocRef);
 
@@ -18,9 +17,8 @@ if (googleLoginBtn) {
         window.location.href = "setup.html";
       }
     } catch (error) {
-      console.error("Authentication Error:", error.message);
-      alert("Login failed. Please try again.");
+      console.error("Auth Error:", error.message);
+      alert("Authentication failed. Please try again.");
     }
   });
 }
-
