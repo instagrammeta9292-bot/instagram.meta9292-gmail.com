@@ -2,27 +2,25 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>RHK</title>
+  <title>RHK Feed</title>
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
   <div class="home-layout">
-    <!-- Instagram Style Sidebar Nav -->
     <aside class="sidebar">
       <div>
-        <div class="rhk-logo">RHK</div>
+        <div class="rhk-logo" style="font-size: 24px; margin-left: 12px;">RHK</div>
         <ul class="nav-links">
-          <li><a href="home.html">🏠 <strong>Home</strong></a></li>
-          <li><a href="#" id="logoutBtn">🚪 Logout</a></li>
+          <li><a href="home.html">🏠 <strong>Feed</strong></a></li>
+          <li><a href="#" id="logoutBtn">🚪 Sign Out</a></li>
         </ul>
       </div>
     </aside>
 
-    <!-- Main Content Feed -->
     <main class="main-feed">
       <div class="feed-container" id="feedContainer">
-        <!-- Post dynamically generated via home.js -->
+        <!-- Rendered via home.js -->
       </div>
     </main>
   </div>
@@ -30,4 +28,3 @@
   <script type="module" src="js/home.js"></script>
 </body>
 </html>
-
